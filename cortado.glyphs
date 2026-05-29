@@ -3,13 +3,13 @@
 .formatVersion = 3;
 DisplayStrings = (
 "
-–A– -B- -C-  -D- -E- -F- -G- -H- -I- -J- -K- -L- -N- -M- -O- -P- -Q- -R- -S- -T- -U- -V- -X- -Y- -Z- -.- -!-  
+rAr rBr rCr  rDr rEr rFr rGr rHr rIr rJr rKr rLr rNr rMr rOr rPr rQr rRr rSr rTr rUr rVr rXr rYr rZr 
  
 -a- -b- -c- -d- -e- -f- -g- -h- -i- -j- -k- -l- -n- -m- -o- -p- -q- -r- -s- -t- -u- -v- -x- -y- -z-
 
-{a} {b} {c} {d} {e} {f} {g} {h} {i} {j} {k} {l} {n} {m} {o} {p} {q} {r} {s} {t} {u} {v} {x} {y} {z} {.}",
-"฿@&¶§©®™°|¦†‡¢¤$€₴₽₹£₩¥+−×÷=≠><≥≤±≈~¬^∞∫∏∑√∂%‰↑↗→↘↓↙←↖↔↕◌◊",
-"»"
+ra rb rc rd re rf rg rh ri rj rk rl rn rm ro rp rq rr rs rt ru rv rx ry rz r. r,",
+"»",
+""
 );
 date = "2026-04-05 23:23:39 +0000";
 familyName = Cortado;
@@ -504,7 +504,7 @@ unicode = 73;
 glyphname = J;
 kernLeft = J;
 kernRight = J;
-lastChange = "2026-05-29 01:59:45 +0000";
+lastChange = "2026-05-29 03:54:18 +0000";
 layers = (
 {
 layerId = m01;
@@ -2210,7 +2210,7 @@ unicode = 113;
 glyphname = r;
 kernLeft = i;
 kernRight = r;
-lastChange = "2026-05-28 03:30:56 +0000";
+lastChange = "2026-05-29 03:53:51 +0000";
 layers = (
 {
 layerId = m01;
@@ -2218,33 +2218,32 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(429,384,l),
-(363,231,l),
-(414,461,o),
-(319,516,o),
-(236,516,cs),
-(124,516,o),
-(88,408,o),
-(88,239,c),
-(120,268,l),
-(120,374,o),
-(157,444,o),
-(213,444,cs),
-(286,444,o),
-(314,357,o),
-(283,226,c),
-(261,320,l)
+(449,384,l),
+(383,231,l),
+(434,461,o),
+(339,516,o),
+(256,516,cs),
+(144,516,o),
+(108,408,o),
+(108,239,c),
+(140,268,l),
+(140,374,o),
+(177,444,o),
+(233,444,cs),
+(306,444,o),
+(334,357,o),
+(303,226,c),
+(281,320,l)
 );
 },
 {
-pos = (10,0);
+pos = (30,0);
 ref = idotless;
 }
 );
-width = 397;
+width = 427;
 }
 );
-metricLeft = "=h";
 unicode = 114;
 },
 {
@@ -3230,7 +3229,7 @@ unicode = 32;
 glyphname = period;
 kernLeft = period;
 kernRight = period;
-lastChange = "2026-05-29 02:00:22 +0000";
+lastChange = "2026-05-29 03:51:22 +0000";
 layers = (
 {
 layerId = m01;
@@ -3261,7 +3260,7 @@ unicode = 46;
 {
 glyphname = comma;
 kernLeft = period;
-lastChange = "2026-05-28 02:36:17 +0000";
+lastChange = "2026-05-29 03:51:18 +0000";
 layers = (
 {
 layerId = m01;
@@ -7426,6 +7425,7 @@ quotesingle = -60;
 "@MMK_R_g" = -100;
 "@MMK_R_guillemotleft" = -30;
 "@MMK_R_guillemotright" = -30;
+"@MMK_R_i" = -80;
 "@MMK_R_m" = -35;
 "@MMK_R_n" = -80;
 "@MMK_R_o" = -80;
@@ -7458,6 +7458,7 @@ quotesingle = -60;
 "@MMK_R_f" = -30;
 "@MMK_R_g" = -90;
 "@MMK_R_guillemotleft" = -30;
+"@MMK_R_i" = -20;
 "@MMK_R_m" = -40;
 "@MMK_R_n" = -40;
 "@MMK_R_o" = -80;
@@ -7731,10 +7732,11 @@ quotesingle = -60;
 "@MMK_R_z" = -20;
 };
 "@MMK_L_r" = {
+"@MMK_R_J" = -60;
 "@MMK_R_c" = -10;
 "@MMK_R_guillemotleft" = -20;
 "@MMK_R_parenright" = -30;
-"@MMK_R_period" = -40;
+"@MMK_R_period" = -60;
 "@MMK_R_quote_str" = -10;
 "@MMK_R_s" = -10;
 "@MMK_R_v" = -20;
