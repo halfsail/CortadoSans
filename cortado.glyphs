@@ -7,7 +7,8 @@ Quynh Vy Feyder
 Quinn Vy Feyder
 Quill tate cn
 ",
-r
+r,
+"ẞ"
 );
 date = "2026-04-05 23:23:39 +0000";
 familyName = Cortado;
@@ -960,6 +961,25 @@ width = 593;
 unicode = 200;
 },
 {
+glyphname = Etilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = E;
+},
+{
+pos = (86,200);
+ref = tildecomb;
+}
+);
+width = 593;
+}
+);
+unicode = 7868;
+},
+{
 glyphname = F;
 kernLeft = H;
 kernRight = F;
@@ -1298,6 +1318,25 @@ width = 198;
 }
 );
 unicode = 204;
+},
+{
+glyphname = Itilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = I;
+},
+{
+pos = (-112,200);
+ref = tildecomb;
+}
+);
+width = 198;
+}
+);
+unicode = 296;
 },
 {
 glyphname = J;
@@ -2319,7 +2358,7 @@ unicode = 83;
 glyphname = Germandbls;
 kernLeft = B;
 kernRight = B;
-lastChange = "2026-06-04 04:46:42 +0000";
+lastChange = "2026-06-09 02:57:19 +0000";
 layers = (
 {
 layerId = m01;
@@ -2330,6 +2369,8 @@ nodes = (
 (141,700,o),
 (60,618,o),
 (60,466,c),
+(60,0,l),
+(135,0,l),
 (135,466,l),
 (135,579,o),
 (194,625,o),
@@ -2373,11 +2414,6 @@ nodes = (
 (206,285,c),
 (226,392,l)
 );
-},
-{
-pos = (10,0);
-ref = l;
-scale = (1,0.6458);
 },
 {
 closed = 1;
@@ -2612,6 +2648,25 @@ width = 674;
 }
 );
 unicode = 217;
+},
+{
+glyphname = Utilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = U;
+},
+{
+pos = (126,200);
+ref = tildecomb;
+}
+);
+width = 674;
+}
+);
+unicode = 360;
 },
 {
 glyphname = V;
@@ -2979,6 +3034,25 @@ width = 616;
 unicode = 7922;
 },
 {
+glyphname = Ytilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = Y;
+},
+{
+pos = (97,200);
+ref = tildecomb;
+}
+);
+width = 616;
+}
+);
+unicode = 7928;
+},
+{
 glyphname = Z;
 kernLeft = Z;
 kernRight = Z;
@@ -3251,7 +3325,7 @@ unicode = 227;
 glyphname = ae;
 kernLeft = a;
 kernRight = e;
-lastChange = "2026-06-09 01:43:18 +0000";
+lastChange = "2026-06-09 02:26:24 +0000";
 layers = (
 {
 anchors = (
@@ -3323,7 +3397,7 @@ pos = (370,1);
 ref = e;
 }
 );
-width = 932;
+width = 928;
 }
 );
 metricLeft = "=a";
@@ -3820,6 +3894,25 @@ width = 558;
 unicode = 232;
 },
 {
+glyphname = etilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = e;
+},
+{
+pos = (68,0);
+ref = tildecomb;
+}
+);
+width = 558;
+}
+);
+unicode = 7869;
+},
+{
 glyphname = f;
 kernLeft = f;
 kernRight = f;
@@ -4295,6 +4388,25 @@ width = 189;
 }
 );
 unicode = 236;
+},
+{
+glyphname = itilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = idotless;
+},
+{
+pos = (-118,0);
+ref = tildecomb;
+}
+);
+width = 185;
+}
+);
+unicode = 297;
 },
 {
 glyphname = ij;
@@ -5598,6 +5710,25 @@ width = 540;
 unicode = 249;
 },
 {
+glyphname = utilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = u;
+},
+{
+pos = (63,0);
+ref = tildecomb;
+}
+);
+width = 540;
+}
+);
+unicode = 361;
+},
+{
 glyphname = v;
 kernLeft = v;
 kernRight = v;
@@ -5946,6 +6077,25 @@ width = 532;
 }
 );
 unicode = 7923;
+},
+{
+glyphname = ytilde;
+layers = (
+{
+layerId = m01;
+shapes = (
+{
+ref = y;
+},
+{
+pos = (55,0);
+ref = tildecomb;
+}
+);
+width = 532;
+}
+);
+unicode = 7929;
 },
 {
 glyphname = z;
@@ -12727,7 +12877,7 @@ width = 822;
 glyphname = fj;
 kernLeft = f;
 kernRight = j;
-lastChange = "2026-06-05 23:30:37 +0000";
+lastChange = "2026-06-09 02:39:37 +0000";
 layers = (
 {
 layerId = m01;
@@ -12801,7 +12951,7 @@ nodes = (
 );
 }
 );
-width = 519;
+width = 539;
 }
 );
 metricLeft = "=f";
@@ -12911,7 +13061,7 @@ width = 827;
 glyphname = tf;
 kernLeft = t;
 kernRight = f;
-lastChange = "2026-06-05 04:25:14 +0000";
+lastChange = "2026-06-09 02:39:37 +0000";
 layers = (
 {
 layerId = m01;
@@ -13003,7 +13153,7 @@ nodes = (
 );
 }
 );
-width = 831;
+width = 851;
 }
 );
 metricRight = "=|i";
