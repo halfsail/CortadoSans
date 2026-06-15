@@ -2,7 +2,7 @@
 .appVersion = "3436";
 .formatVersion = 3;
 DisplayStrings = (
-"ŒaŒbŒcŒdŒeŒfŒgŒhŒiŒjŒkŒlŒmŒnŒoŒpŒqŒrŒsŒtŒuŒvŒwŒxŒyŒzŒåŒäŒöŒ",
+oecI,
 "Portland cortado"
 );
 axes = (
@@ -1909,7 +1909,7 @@ unicode = 72;
 glyphname = I;
 kernLeft = I;
 kernRight = I;
-lastChange = "2026-06-09 03:13:41 +0000";
+lastChange = "2026-06-15 06:33:56 +0000";
 layers = (
 {
 anchors = (
@@ -1948,19 +1948,19 @@ width = 198;
 anchors = (
 {
 name = bottom;
-pos = (119,0);
+pos = (139,0);
 },
 {
 name = ogonek;
-pos = (214,10);
+pos = (234,10);
 },
 {
 name = top;
-pos = (119,700);
+pos = (139,700);
 },
 {
 name = topleft;
-pos = (20,700);
+pos = (40,700);
 }
 );
 layerId = "54C7CCF7-EB46-4BAC-BD7A-C8A6D200FE1F";
@@ -1968,18 +1968,16 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(50,0,l),
-(188,0,l),
-(188,700,l),
-(50,700,l)
+(70,0,l),
+(208,0,l),
+(208,700,l),
+(70,700,l)
 );
 }
 );
-width = 238;
+width = 278;
 }
 );
-metricLeft = "=H";
-metricRight = "=H";
 unicode = 73;
 },
 {
@@ -2006,11 +2004,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (238,0);
+pos = (278,0);
 ref = J;
 }
 );
-width = 827;
+width = 867;
 }
 );
 unicode = 306;
@@ -2041,11 +2039,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (71,200);
+pos = (91,200);
 ref = acutecomb;
 }
 );
-width = 238;
+width = 278;
 }
 );
 unicode = 205;
@@ -2076,11 +2074,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (-81,200);
+pos = (-61,200);
 ref = circumflexcomb;
 }
 );
-width = 238;
+width = 278;
 }
 );
 unicode = 206;
@@ -2111,11 +2109,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (-116,200);
+pos = (-96,200);
 ref = dieresiscomb;
 }
 );
-width = 238;
+width = 278;
 }
 );
 unicode = 207;
@@ -2146,11 +2144,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (-78,200);
+pos = (-58,200);
 ref = gravecomb;
 }
 );
-width = 238;
+width = 278;
 }
 );
 unicode = 204;
@@ -2179,11 +2177,11 @@ shapes = (
 ref = I;
 },
 {
-pos = (-141,200);
+pos = (-121,200);
 ref = tildecomb;
 }
 );
-width = 238;
+width = 278;
 }
 );
 unicode = 296;
@@ -6350,7 +6348,7 @@ unicode = 240;
 glyphname = e;
 kernLeft = o;
 kernRight = c;
-lastChange = "2026-06-15 01:02:34 +0000";
+lastChange = "2026-06-15 06:20:45 +0000";
 layers = (
 {
 anchors = (
@@ -14678,7 +14676,7 @@ unicode = 46;
 {
 glyphname = comma;
 kernLeft = period;
-lastChange = "2026-06-12 23:06:42 +0000";
+lastChange = "2026-06-15 06:17:56 +0000";
 layers = (
 {
 layerId = m01;
@@ -22165,103 +22163,6 @@ width = 318;
 unicode = 184;
 },
 {
-glyphname = Bottom;
-lastChange = "2026-06-09 03:08:50 +0000";
-layers = (
-{
-layerId = m01;
-shapes = (
-{
-closed = 1;
-nodes = (
-(706,263,l),
-(688,180,o),
-(647,112,o),
-(586,61,c),
-(525,10,o),
-(447,-15,o),
-(354,-15,c),
-(248,-16,o),
-(163,19,o),
-(97,88,c),
-(31,158,o),
-(-2,245,o),
-(0,350,c),
-(97,350,l),
-(97,263,o),
-(121,195,o),
-(168,145,c),
-(215,95,o),
-(278,70,o),
-(354,70,c),
-(433,70,o),
-(493,90,o),
-(536,132,c),
-(572,166,o),
-(598,210,o),
-(616,263,c)
-);
-}
-);
-width = 600;
-},
-{
-layerId = "54C7CCF7-EB46-4BAC-BD7A-C8A6D200FE1F";
-width = 600;
-}
-);
-},
-{
-glyphname = bowel;
-lastChange = "2026-06-09 03:08:50 +0000";
-layers = (
-{
-layerId = m01;
-shapes = (
-{
-closed = 1;
-nodes = (
-(409,-15,o),
-(499,91,o),
-(499,251,cs),
-(499,409,o),
-(409,515,o),
-(273,515,cs),
-(136,515,o),
-(45,409,o),
-(45,251,cs),
-(45,91,o),
-(136,-15,o),
-(273,-15,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(159,70,o),
-(86,152,o),
-(86,252,cs),
-(86,351,o),
-(159,432,o),
-(248,432,cs),
-(336,432,o),
-(408,351,o),
-(408,252,cs),
-(408,152,o),
-(336,70,o),
-(248,70,cs)
-);
-}
-);
-width = 600;
-},
-{
-layerId = "54C7CCF7-EB46-4BAC-BD7A-C8A6D200FE1F";
-width = 600;
-}
-);
-},
-{
 glyphname = dot;
 lastChange = "2026-06-11 04:40:32 +0000";
 layers = (
@@ -24427,6 +24328,7 @@ z = {
 "@MMK_R_a" = -60;
 "@MMK_R_o" = -60;
 "@MMK_R_partialdiff" = -40;
+"@MMK_R_period" = -80;
 };
 "@MMK_L_A" = {
 "@MMK_R_a" = -20;
@@ -24586,6 +24488,7 @@ z = {
 "@MMK_R_g" = -100;
 "@MMK_R_n" = -40;
 "@MMK_R_o" = -80;
+"@MMK_R_period" = -60;
 "@MMK_R_questiondown" = -40;
 "@MMK_R_s" = -40;
 "@MMK_R_tilde" = -60;
@@ -24762,6 +24665,7 @@ z = {
 "@MMK_R_g" = -30;
 "@MMK_R_o" = -45;
 "@MMK_R_partialdiff" = -30;
+"@MMK_R_period" = -50;
 "@MMK_R_questiondown" = -30;
 "@MMK_R_tilde" = -20;
 };
