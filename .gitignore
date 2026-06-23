@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+.secret
+.vscode/
+env
+*(autosaved)*
