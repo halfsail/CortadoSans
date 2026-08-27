@@ -1,0 +1,52 @@
+# buildVariable: Build a variable font from a source file
+rule buildVariable
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner fontmake --output-path $out -o variable $
+      $fontmake_type $in $args $stamp
+  description = buildVariable
+
+# fix: Run gftools-fix
+rule fix
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner gftools-fix-font -o $out $args $in $stamp
+  description = fix
+
+# buildStat: Build a STAT table from one or more source files
+rule buildSTAT-operation
+  command = gftools-gen-stat --out $tempdir $args -- $in && mv $finalfile $
+      $out $stamp
+rule buildSTAT-postprocess
+  command = gftools-gen-stat --inplace $args -- $in $stamp
+
+# copy: Copy a file
+rule copy
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner cp $in $out $stamp
+  description = copy
+
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh: $
+    buildVariable CortadoSans.glyphs
+  operation = buildVariable
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+# Postprocessing  with BuildSTAT
+build $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp: $
+    buildSTAT-postprocess ../fonts/variable/CortadoSans[wght].ttf | $
+    ../fonts/variable/CortadoSans[wght].ttf
+  stamp =  && touch $
+      /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp
+  postprocess = buildStat
+# Generating ../fonts/variable/CortadoSans[wght].ttf
+build ../fonts/variable/CortadoSans[wght].ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh
+  operation = fix
+  args = 
+default $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp

@@ -1,0 +1,16 @@
+sources:
+  - CortadoSans.glyphs
+
+axisOrder:
+  - wght
+
+outputDir: ../fonts
+
+# Automatically applies gftools post-processing fixes:
+# - Fixes gasp table (0xFFFF -> 0x0F)
+# - Adds smart dropout control to prep
+# - Removes empty name table records
+# - Flattens components in glyf table
+# - Ensures proper OS/2 and hhea metrics
+buildVariable: true
+buildStatic: false
