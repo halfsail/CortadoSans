@@ -20,6 +20,45 @@ rule buildSTAT-operation
 rule buildSTAT-postprocess
   command = gftools-gen-stat --inplace $args -- $in $stamp
 
+# compress: Compress to webfont
+rule compress
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner fonttools ttLib.woff2 compress -o $out $in $
+      $stamp
+  description = compress
+
+# instantiateUfo: Create instance UFOs from a Glyphs or designspace file
+rule instantiateUfo
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner fontmake -i "$instance_name" -o ufo $
+      $fontmake_type $in $args $stamp
+  description = instantiateUfo
+
+# buildTTF: Build a TTF from a source file
+rule buildTTF
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner fontmake --output-path $out -o ttf $
+      $fontmake_type $in $args $stamp
+  description = buildTTF
+
+# autohint: Run gftools-autohint
+rule autohint
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner gftools-autohint $args -o $out $in $stamp
+  description = autohint
+
+# buildOTF: Build a OTF from a source file
+rule buildOTF
+  command = $
+      /Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11 -m $
+      gftools.builder.jobrunner fontmake --output-path $out -o otf $
+      $fontmake_type $in $args $stamp
+  description = buildOTF
+
 # copy: Copy a file
 rule copy
   command = $
@@ -27,26 +66,255 @@ rule copy
       gftools.builder.jobrunner cp $in $out $stamp
   description = copy
 
-# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh
-build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh: $
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpoygue9vg
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpoygue9vg: $
     buildVariable CortadoSans.glyphs
   operation = buildVariable
   args = --filter ...  --filter FlattenComponentsFilter --filter $
       DecomposeTransformedComponentsFilter
   fontmake_type = -g
   fontmake_args =  --verbose WARNING 
+# Generating instance_ufos/CortadoSans-Light.ufo.json
+build instance_ufos/CortadoSans-Light.ufo.json: instantiateUfo $
+    CortadoSans.glyphs
+  operation = instantiateUfo
+  instance_name = Cortado Sans Light
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+  args =  --ufo-structure=json --instance-dir instance_ufos
+# Generating instance_ufos/CortadoSans-Regular.ufo.json
+build instance_ufos/CortadoSans-Regular.ufo.json: instantiateUfo $
+    CortadoSans.glyphs
+  operation = instantiateUfo
+  instance_name = Cortado Sans Regular
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+  args =  --ufo-structure=json --instance-dir instance_ufos
+# Generating instance_ufos/CortadoSans-Medium.ufo.json
+build instance_ufos/CortadoSans-Medium.ufo.json: instantiateUfo $
+    CortadoSans.glyphs
+  operation = instantiateUfo
+  instance_name = Cortado Sans Medium
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+  args =  --ufo-structure=json --instance-dir instance_ufos
+# Generating instance_ufos/CortadoSans-SemiBold.ufo.json
+build instance_ufos/CortadoSans-SemiBold.ufo.json: instantiateUfo $
+    CortadoSans.glyphs
+  operation = instantiateUfo
+  instance_name = Cortado Sans SemiBold
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+  args =  --ufo-structure=json --instance-dir instance_ufos
+# Generating instance_ufos/CortadoSans-Bold.ufo.json
+build instance_ufos/CortadoSans-Bold.ufo.json: instantiateUfo $
+    CortadoSans.glyphs
+  operation = instantiateUfo
+  instance_name = Cortado Sans Bold
+  fontmake_type = -g
+  fontmake_args =  --verbose WARNING 
+  args =  --ufo-structure=json --instance-dir instance_ufos
 # Postprocessing  with BuildSTAT
 build $
-    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp: $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp0x49z2ls.buildStatstamp: $
     buildSTAT-postprocess ../fonts/variable/CortadoSans[wght].ttf | $
     ../fonts/variable/CortadoSans[wght].ttf
   stamp =  && touch $
-      /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp
+      /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp0x49z2ls.buildStatstamp
   postprocess = buildStat
+# Generating ../fonts/webfonts/CortadoSans[wght].woff2
+build ../fonts/webfonts/CortadoSans[wght].woff2: compress $
+    ../fonts/variable/CortadoSans[wght].ttf | $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp0x49z2ls.buildStatstamp
+  operation = compress
+# Generating ../fonts/webfonts/CortadoSans-Light.woff2
+build ../fonts/webfonts/CortadoSans-Light.woff2: compress $
+    ../fonts/ttf/CortadoSans-Light.ttf
+  operation = compress
+# Generating ../fonts/webfonts/CortadoSans-Regular.woff2
+build ../fonts/webfonts/CortadoSans-Regular.woff2: compress $
+    ../fonts/ttf/CortadoSans-Regular.ttf
+  operation = compress
+# Generating ../fonts/webfonts/CortadoSans-Medium.woff2
+build ../fonts/webfonts/CortadoSans-Medium.woff2: compress $
+    ../fonts/ttf/CortadoSans-Medium.ttf
+  operation = compress
+# Generating ../fonts/webfonts/CortadoSans-SemiBold.woff2
+build ../fonts/webfonts/CortadoSans-SemiBold.woff2: compress $
+    ../fonts/ttf/CortadoSans-SemiBold.ttf
+  operation = compress
+# Generating ../fonts/webfonts/CortadoSans-Bold.woff2
+build ../fonts/webfonts/CortadoSans-Bold.woff2: compress $
+    ../fonts/ttf/CortadoSans-Bold.ttf
+  operation = compress
 # Generating ../fonts/variable/CortadoSans[wght].ttf
 build ../fonts/variable/CortadoSans[wght].ttf: fix $
-    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphabrfprh
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpoygue9vg
+  operation = fix
+  args = 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpj8aa4f83
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpj8aa4f83: $
+    buildTTF instance_ufos/CortadoSans-Light.ufo.json
+  operation = buildTTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdbvt7swt
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdbvt7swt: $
+    buildOTF instance_ufos/CortadoSans-Light.ufo.json
+  operation = buildOTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmppx3ez_8_
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmppx3ez_8_: $
+    autohint /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpj8aa4f83
+  operation = autohint
+  args = --fail-ok 
+# Generating ../fonts/ttf/CortadoSans-Light.ttf
+build ../fonts/ttf/CortadoSans-Light.ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmppx3ez_8_
+  operation = fix
+  args = 
+# Generating ../fonts/otf/CortadoSans-Light.otf
+build ../fonts/otf/CortadoSans-Light.otf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdbvt7swt
+  operation = fix
+  args = 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpi6nrlr56
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpi6nrlr56: $
+    buildTTF instance_ufos/CortadoSans-Regular.ufo.json
+  operation = buildTTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpb9r1chr9
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpb9r1chr9: $
+    buildOTF instance_ufos/CortadoSans-Regular.ufo.json
+  operation = buildOTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpqz6_idb_
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpqz6_idb_: $
+    autohint /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpi6nrlr56
+  operation = autohint
+  args = --fail-ok 
+# Generating ../fonts/ttf/CortadoSans-Regular.ttf
+build ../fonts/ttf/CortadoSans-Regular.ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpqz6_idb_
+  operation = fix
+  args = 
+# Generating ../fonts/otf/CortadoSans-Regular.otf
+build ../fonts/otf/CortadoSans-Regular.otf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpb9r1chr9
+  operation = fix
+  args = 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpq2fksn2i
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpq2fksn2i: $
+    buildTTF instance_ufos/CortadoSans-Medium.ufo.json
+  operation = buildTTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp9kh5oadv
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp9kh5oadv: $
+    buildOTF instance_ufos/CortadoSans-Medium.ufo.json
+  operation = buildOTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpk3wb0ra3
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpk3wb0ra3: $
+    autohint /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpq2fksn2i
+  operation = autohint
+  args = --fail-ok 
+# Generating ../fonts/ttf/CortadoSans-Medium.ttf
+build ../fonts/ttf/CortadoSans-Medium.ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpk3wb0ra3
+  operation = fix
+  args = 
+# Generating ../fonts/otf/CortadoSans-Medium.otf
+build ../fonts/otf/CortadoSans-Medium.otf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp9kh5oadv
+  operation = fix
+  args = 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpcctiql93
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpcctiql93: $
+    buildTTF instance_ufos/CortadoSans-SemiBold.ufo.json
+  operation = buildTTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp6gcuhtsi
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp6gcuhtsi: $
+    buildOTF instance_ufos/CortadoSans-SemiBold.ufo.json
+  operation = buildOTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpzvuk04fx
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpzvuk04fx: $
+    autohint /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpcctiql93
+  operation = autohint
+  args = --fail-ok 
+# Generating ../fonts/ttf/CortadoSans-SemiBold.ttf
+build ../fonts/ttf/CortadoSans-SemiBold.ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpzvuk04fx
+  operation = fix
+  args = 
+# Generating ../fonts/otf/CortadoSans-SemiBold.otf
+build ../fonts/otf/CortadoSans-SemiBold.otf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp6gcuhtsi
+  operation = fix
+  args = 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpff21n2az
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpff21n2az: $
+    buildTTF instance_ufos/CortadoSans-Bold.ufo.json
+  operation = buildTTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp7462ubd8
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp7462ubd8: $
+    buildOTF instance_ufos/CortadoSans-Bold.ufo.json
+  operation = buildOTF
+  args = --filter ...  --filter FlattenComponentsFilter --filter $
+      DecomposeTransformedComponentsFilter
+  fontmake_type = -u
+  fontmake_args =  --verbose WARNING 
+# Generating /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdv7dcgy3
+build /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdv7dcgy3: $
+    autohint /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpff21n2az
+  operation = autohint
+  args = --fail-ok 
+# Generating ../fonts/ttf/CortadoSans-Bold.ttf
+build ../fonts/ttf/CortadoSans-Bold.ttf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmpdv7dcgy3
+  operation = fix
+  args = 
+# Generating ../fonts/otf/CortadoSans-Bold.otf
+build ../fonts/otf/CortadoSans-Bold.otf: fix $
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp7462ubd8
   operation = fix
   args = 
 default $
-    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmphidtz8h0.buildStatstamp
+    /var/folders/hy/rpn7zgl560q_h4cf0_mnqqr80000gn/T/tmp0x49z2ls.buildStatstamp $
+    ../fonts/webfonts/CortadoSans[wght].woff2 $
+    ../fonts/webfonts/CortadoSans-Light.woff2 $
+    ../fonts/webfonts/CortadoSans-Regular.woff2 $
+    ../fonts/webfonts/CortadoSans-Medium.woff2 $
+    ../fonts/webfonts/CortadoSans-SemiBold.woff2 $
+    ../fonts/webfonts/CortadoSans-Bold.woff2 $
+    ../fonts/otf/CortadoSans-Light.otf ../fonts/otf/CortadoSans-Regular.otf $
+    ../fonts/otf/CortadoSans-Medium.otf $
+    ../fonts/otf/CortadoSans-SemiBold.otf ../fonts/otf/CortadoSans-Bold.otf

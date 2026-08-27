@@ -13,4 +13,7 @@ outputDir: ../fonts
 # - Flattens components in glyf table
 # - Ensures proper OS/2 and hhea metrics
 buildVariable: true
-buildStatic: false
+buildStatic: true
+buildOTF: true
+buildTTF: true
+buildWebfont: true

@@ -3,4 +3,7 @@
 .secret
 .vscode/
 env
+build.ninja
+instance_ufos/
+.ninja_*
 *(autosaved)*
