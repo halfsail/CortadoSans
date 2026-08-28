@@ -1,4 +1,5 @@
-Copyright 2026 The Cortado Sans Project Authors (https://github.com/halfsail/CortadoSans)
+Copyright (c) 2026 Kevin Feyder.
+https://feyder.co/projects/cortadosans.html
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
