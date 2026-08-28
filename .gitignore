@@ -7,3 +7,4 @@ build.ninja
 instance_ufos/
 .ninja_*
 *(autosaved)*
+.DS_Store
